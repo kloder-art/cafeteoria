@@ -3,14 +3,14 @@ slug: la-otra-vigilancia
 title: La otra vigilancia
 date: 2012-06-13
 categories:
-  - realidad
+  - Realidad
 tags:
-  - activismo
-  - facebook
-  - mercado
-  - postmodernidad
-  - redes-sociales
-  - twitter
+  - Activismo
+  - Facebook
+  - Mercado
+  - Postmodernidad
+  - Redes Sociales
+  - Twitter
 image: featured.jpg
 ---
 

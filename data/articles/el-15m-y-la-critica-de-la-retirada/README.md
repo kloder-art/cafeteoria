@@ -3,13 +3,13 @@ slug: el-15m-y-la-critica-de-la-retirada
 title: El 15M y la crítica de la retirada
 date: 2012-05-28
 categories:
-  - realidad
+  - Realidad
 tags:
-  - 15m
-  - activismo
-  - chantal-mouffe
-  - mercado
-  - política
+  - 15M
+  - Activismo
+  - Chantal Mouffe
+  - Mercado
+  - Política
 image: featured.jpg
 ---
 

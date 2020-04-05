@@ -3,22 +3,20 @@ slug: el-adios-mas-desesperado
 title: El adiós más desesperado
 date: 2012-06-12
 categories:
-  - ficción
-  - publicados
+  - Ficción
 tags:
-  - comedia
-  - narrativa
-  - parodia
-  - postmodernidad
-  - revista-archung
-  - series
+  - Comedia
+  - Narrativa
+  - Parodia
+  - Postmodernidad
+  - Series
 image: featured.jpg
+publications:
+  - title: Achtung!
+    type: revista
+    date: 2012-05-01
+    url: http://www.achtungmag.com/series-television-desesperatehousewives-revista-achtung/
 ---
-
-_Artículo publicado previamente, en mayo de 2012, en la Revista
-[Achtung!](http://www.achtungmag.com/series-television-desesperatehousewives-revista-achtung/)
-Si quieres compartir su contenido, por favor, hazlo desde su emplazamiento
-original._
 
 En narrativa, cuando se inventa una manera de contar las cosas, la atención se
 suele desviar a la innovación de la propuesta; lo importante es que una

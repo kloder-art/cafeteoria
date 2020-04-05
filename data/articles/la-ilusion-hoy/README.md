@@ -3,13 +3,13 @@ slug: la-ilusion-hoy
 title: La ilusión hoy
 date: 2012-07-08
 categories:
-  - realidad
+  - Realidad
 tags:
-  - 15m
-  - activismo
-  - bauman
-  - política
-  - postmodernidad
+  - 15M
+  - Activismo
+  - Bauman
+  - Política
+  - Postmodernidad
 image: featured.jpg
 ---
 

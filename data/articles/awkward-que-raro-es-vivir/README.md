@@ -3,20 +3,19 @@ slug: awkward-que-raro-es-vivir
 title: Awkward, qué raro es vivir!
 date: 2012-05-16
 categories:
-  - ficcion, publicados
+  - Ficción
 tags:
-  - comedia
-  - narrativa
-  - parodia
-  - revista
-  - achtung
-  - series
+  - Comedia
+  - Narrativa
+  - Parodia
+  - Series
 image: featured.jpg
+publications:
+  - title: Achtung!
+    type: revista
+    date: 2012-05-01
+    url: http://www.achtungmag.com/awkward-series-tv-revista-achtung/
 ---
-
-_Artículo publicado anteriormente en mayo de 2012 en la Revista Achtung! Si
-quieres compartir su contenido, por favor, hazlo desde su emplazamiento
-original._
 
 La comedia ligera y los extraños enigmas sin respuesta se pueden combinar. Es lo
 que queda claro al terminar de ver cualquier capítulo de **Awkward**, una de las

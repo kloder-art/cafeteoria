@@ -77,7 +77,9 @@ const Item = ({ item }) => (
         <Img fluid={item.frontmatter.image.childImageSharp.fluid} />
         <div className={'link'}>Leer artículo →</div>
       </Link>
-      <div className={'categories'}>{item.frontmatter.categories}</div>
+      <div className={'categories'}>
+        {item.frontmatter.categories.join(', ')}
+      </div>
     </div>
     <div className={'meta'}>
       <h4>
@@ -98,4 +100,3 @@ Item.propTypes = {
 };
 
 export default Item;
-

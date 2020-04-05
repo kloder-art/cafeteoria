@@ -3,21 +3,20 @@ slug: inland-empire-si-o-no
 title: Inland Empire, sí o no
 date: 2013-03-16
 categories:
-  - ficción
-  - publicados
+  - Ficción
 tags:
-  - cine
-  - david-lynch
-  - narrativa
-  - sigmund-freud
-  - postmodernidad
+  - Cine
+  - David Lynch
+  - Narrativa
+  - Sigmund Freud
+  - Postmodernidad
 image: featured.jpg
+publications:
+  - title: Achtung!
+    type: revista
+    date: 2013-03-01
+    url: http://www.achtungmag.com/inlandempire-cine-revista-achtung/
 ---
-
-Artículo publicado previamente, en marzo de 2013, en la Revista
-[Achtung!](http://www.achtungmag.com/inlandempire-cine-revista-achtung/) Si
-quieres compartir su contenido, por favor, hazlo desde su emplazamiento
-original.
 
 Es una anunciada y postergada infidelidad, en el selecto mundo del arte y la
 alta sociedad, la que desata una catarata de emociones en la misteriosa

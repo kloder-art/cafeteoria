@@ -5,6 +5,8 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import GatsbyImage from 'gatsby-image';
 
+import Publications from '../components/article/Publications';
+
 const StyleArticle = styled.article`
   .meta {
     color: lightgrey;
@@ -26,6 +28,10 @@ const Article = ({
           (x) => x.charAt(0).toUpperCase() + x.slice(1)
         )}
       </div>
+
+      {data.frontmatter.publications && (
+        <Publications items={data.frontmatter.publications} />
+      )}
       <div dangerouslySetInnerHTML={{ __html: data.html }} />
     </StyleArticle>
   </Layout>
@@ -50,6 +56,12 @@ export const pageQuery = graphql`
           title
           date(formatString: "DD MMMM, YYYY", locale: "es-ES")
           categories
+          publications {
+            title
+            type
+            date(formatString: "DD MMMM, YYYY", locale: "es-ES")
+            url
+          }
           tags
           image {
             childImageSharp {

@@ -3,11 +3,11 @@ slug: la-crisis-y-los-suenos-probables
 title: La crisis y los sueños probables
 date: 2013-09-23
 categories:
-  - realidad
+  - Realidad
 tags:
-  - activismo
-  - mercado
-  - política
+  - Activismo
+  - Mercado
+  - Política
 image: featured.jpg
 ---
 

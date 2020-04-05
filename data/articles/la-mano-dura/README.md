@@ -3,13 +3,13 @@ slug: la-mano-dura
 title: La mano dura
 date: 2012-04-21
 categories:
-  - realidad
-  - ficción
+  - Realidad
+  - Ficción
 tags:
-  - disney
-  - koyré
-  - laclau
-  - política
+  - Disney
+  - Koyré
+  - Laclau
+  - Política
 image: featured.jpg
 ---
 

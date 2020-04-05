@@ -3,11 +3,11 @@ slug: el-momento-social-volvio
 title: El momento social volvió
 date: 2012-05-03
 categories:
-  - realidad
+  - Realidad
 tags:
-  - postmodernidad
-  - redes-sociales
-  - twitter
+  - Postmodernidad
+  - Redes Sociales
+  - Twitter
 image: featured.jpg
 ---
 
