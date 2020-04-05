@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: '/cafeteoria',
   siteMetadata: {
     title: 'Cafeteoría',
     description: 'Ya alguien nos había hablado de todo esto',
