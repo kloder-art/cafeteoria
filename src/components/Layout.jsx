@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import Header from './Header';
 import Menu from './Menu';
 import SidebarLeft from './SidebarLeft';
+import SidebarRight from './SidebarRight';
 
 const StyledLayout = styled.div`
   max-width: 960px;
@@ -17,7 +18,6 @@ const StyledLayout = styled.div`
   grid-template-areas:
     'header header header header header'
     'menu menu menu menu menu'
-    'sidebarLeft featured featured featured featured'
     'sidebarLeft main main main sidebarRight';
   grid-auto-flow: row dense;
   main {
@@ -45,6 +45,7 @@ const Layout = ({ children }) => {
       <Menu />
       <SidebarLeft />
       <main>{children}</main>
+      <SidebarRight />
     </StyledLayout>
   );
 };
