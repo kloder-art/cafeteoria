@@ -20,6 +20,7 @@ import {
   TwitterShareButton,
   WhatsappShareButton,
 } from 'react-share';
+import { Location } from '@reach/router';
 
 const StyleShare = styled.div`
   margin: 1rem 0;
@@ -36,30 +37,36 @@ const StyleShare = styled.div`
 
 const Share = () => (
   <StyleShare>
-    <FacebookShareButton url={window.location.href}>
-      <FaFacebook />
-    </FacebookShareButton>
-    <TwitterShareButton url={window.location.href}>
-      <FaTwitter />
-    </TwitterShareButton>
-    <LinkedinShareButton url={window.location.href}>
-      <FaLinkedin />
-    </LinkedinShareButton>
-    <PocketShareButton url={window.location.href}>
-      <FaGetPocket />
-    </PocketShareButton>
-    <WhatsappShareButton url={window.location.href}>
-      <FaWhatsapp />
-    </WhatsappShareButton>
-    <TelegramShareButton url={window.location.href}>
-      <FaTelegram />
-    </TelegramShareButton>
-    <RedditShareButton url={window.location.href}>
-      <FaReddit />
-    </RedditShareButton>
-    <TumblrShareButton url={window.location.href}>
-      <FaTumblr />
-    </TumblrShareButton>
+    <Location>
+      {({ location: { href } }) => (
+        <>
+          <FacebookShareButton url={href}>
+            <FaFacebook />
+          </FacebookShareButton>
+          <TwitterShareButton url={href}>
+            <FaTwitter />
+          </TwitterShareButton>
+          <LinkedinShareButton url={href}>
+            <FaLinkedin />
+          </LinkedinShareButton>
+          <PocketShareButton url={href}>
+            <FaGetPocket />
+          </PocketShareButton>
+          <WhatsappShareButton url={href}>
+            <FaWhatsapp />
+          </WhatsappShareButton>
+          <TelegramShareButton url={href}>
+            <FaTelegram />
+          </TelegramShareButton>
+          <RedditShareButton url={href}>
+            <FaReddit />
+          </RedditShareButton>
+          <TumblrShareButton url={href}>
+            <FaTumblr />
+          </TumblrShareButton>
+        </>
+      )}
+    </Location>
   </StyleShare>
 );
 
