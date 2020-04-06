@@ -32,10 +32,10 @@ TagPage.propTypes = {
 export default TagPage;
 
 export const pageQuery = graphql`
-  query($tag: [String!]) {
+  query($tag: String!) {
     allFile(
       filter: {
-        childMarkdownRemark: { frontmatter: { tags: { in: $tag } } }
+        childMarkdownRemark: { frontmatter: { tags: { eq: $tag } } }
         sourceInstanceName: { eq: "articles" }
         extension: { eq: "md" }
       }

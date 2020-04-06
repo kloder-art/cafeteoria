@@ -30,11 +30,11 @@ CategoryPage.propTypes = {
 
 export default CategoryPage;
 
-export const pageQuery = graphql`
-  query($category: [String!]) {
+export const query = graphql`
+  query($category: String!) {
     allFile(
       filter: {
-        childMarkdownRemark: { frontmatter: { categories: { in: $category } } }
+        childMarkdownRemark: { frontmatter: { categories: { eq: $category } } }
         sourceInstanceName: { eq: "articles" }
         extension: { eq: "md" }
       }
