@@ -15,7 +15,9 @@ const CategoryPage = ({
   return (
     <Layout>
       <SEO title={category} />
-      <h4>Filtrando por la categoría: {category}</h4>
+      <h4>
+        Filtrando por la categoría: {category} ({data.length})
+      </h4>
       <List items={data.map((x) => x.node.childMarkdownRemark)} />
     </Layout>
   );
@@ -29,7 +31,7 @@ CategoryPage.propTypes = {
 export default CategoryPage;
 
 export const pageQuery = graphql`
-  query($category: [String]) {
+  query($category: [String!]) {
     allFile(
       filter: {
         childMarkdownRemark: { frontmatter: { categories: { in: $category } } }

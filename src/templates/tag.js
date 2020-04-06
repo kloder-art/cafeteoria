@@ -12,10 +12,13 @@ const TagPage = ({
   },
   pageContext: { tag },
 }) => {
+  console.log(tag);
   return (
     <Layout>
       <SEO title={tag} />
-      <h4>Filtrando por la etiqueta: {tag}</h4>
+      <h4>
+        Filtrando por la etiqueta: {tag} ({data.length})
+      </h4>
       <List items={data.map((x) => x.node.childMarkdownRemark)} />
     </Layout>
   );
@@ -29,7 +32,7 @@ TagPage.propTypes = {
 export default TagPage;
 
 export const pageQuery = graphql`
-  query($tag: [String]) {
+  query($tag: [String!]) {
     allFile(
       filter: {
         childMarkdownRemark: { frontmatter: { tags: { in: $tag } } }
