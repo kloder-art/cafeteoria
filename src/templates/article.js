@@ -1,47 +1,53 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Layout from '../components/Layout';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import GatsbyImage from 'gatsby-image';
 
+import Layout from '../components/Layout';
 import Publications from '../components/article/Publications';
+import Metadata from '../components/article/Metadata';
+import Tags from '../components/article/Tags';
+import Share from '../components/article/Share';
 
-const StyleArticle = styled.article`
-  .meta {
-    color: lightgrey;
-  }
-`;
+const StyleArticle = styled.article``;
 
 const ArticlePage = ({
   data: {
-    file: { childMarkdownRemark: data },
+    file: {
+      childMarkdownRemark: { frontmatter, html },
+    },
   },
 }) => (
   <Layout>
     <StyleArticle>
-      <GatsbyImage fluid={data.frontmatter.image.childImageSharp.fluid} />
-      <h2>{data.frontmatter.title}</h2>
-      <div className={'meta'}>
-        Publicado el {data.frontmatter.date} en{' '}
-        {data.frontmatter.categories.map((x, idx) => (
-          <Link key={idx} to={`/category/${x}`}>
-            {x}
-            {idx < data.frontmatter.categories.length - 1 && ', '}
-          </Link>
-        ))}
-      </div>
-
-      {data.frontmatter.publications && (
-        <Publications items={data.frontmatter.publications} />
+      <GatsbyImage fluid={frontmatter.image.childImageSharp.fluid} />
+      <h2>{frontmatter.title}</h2>
+      <Metadata frontmatter={frontmatter} />
+      {frontmatter.publications && (
+        <Publications items={frontmatter.publications} />
       )}
-      <div dangerouslySetInnerHTML={{ __html: data.html }} />
+      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <Share />
+      <Tags tags={frontmatter.tags} />
     </StyleArticle>
   </Layout>
 );
 
 ArticlePage.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.shape({
+    file: PropTypes.shape({
+      childMarkdownRemark: PropTypes.shape({
+        frontmatter: PropTypes.shape({
+          image: PropTypes.object,
+          title: PropTypes.string,
+          publications: PropTypes.array,
+          tags: PropTypes.array,
+        }),
+        html: PropTypes.string,
+      }),
+    }),
+  }),
 };
 
 export default ArticlePage;
