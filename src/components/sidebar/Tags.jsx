@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 
-const range = [0.8, 2];
+const range = [0.8, 1.4];
 const scale = (min, max) => (x) =>
   ((x - min) / (max - min)) * (range[1] - range[0]) + range[0];
 
