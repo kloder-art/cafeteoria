@@ -11,6 +11,7 @@ const StyledTags = styled.div``;
 const StyledTag = styled.span`
   font-size: ${(props) => props.size}rem;
   line-height: ${(props) => props.size}rem;
+  word-break: break-word;
 `;
 
 const Tags = () => {
