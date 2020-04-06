@@ -57,6 +57,11 @@ img {
   margin-bottom: 1rem;
 }
 
+hr {
+  border: 0px;
+  border-bottom: 1px solid lightgrey;
+}
+
 h1,
 h2,
 h3,
@@ -115,6 +120,24 @@ blockquote {
   margin-left: 0;
   padding-left: 1rem;
   border-left: 3px solid #ccc;
+}
+
+.footnotes {
+  margin: 2rem 0;
+  ol {
+    margin: 0;
+    padding: 0 0 0 1rem;
+    li {
+      vertical-align: top;
+      p {
+        display: inline;
+        margin: 0;
+      }
+      a {
+        display: inline;
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 480px) {
