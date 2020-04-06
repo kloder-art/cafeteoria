@@ -59,7 +59,7 @@ const Tags = () => {
       <h4>Etiquetas</h4>
       {tags.map((x, idx) => (
         <StyledTag key={idx} size={scaleFn(x.count)}>
-          <Link to={'/'}>{x.tag}</Link>{' '}
+          <Link to={`/tag/${x.tag}`}>{x.tag}</Link>{' '}
         </StyledTag>
       ))}
     </StyledTags>

@@ -4,8 +4,6 @@ import styled from 'styled-components';
 import Img from 'gatsby-image';
 import { Link } from 'gatsby';
 
-import { excerpt } from '../../utils/text';
-
 const StyledItem = styled.div`
   display: grid;
   grid-gap: 1rem;
@@ -31,7 +29,7 @@ const StyledItem = styled.div`
       right: 0;
       color: rgba(255, 255, 255, 0.75);
       font-size: 0.8333333333333333em;
-      background: rgba(0, 0, 0, 0.25);
+      background: rgba(0, 0, 0, 0.75);
       padding: 0.1em 0.8em;
       text-transform: capitalize;
     }
@@ -78,7 +76,12 @@ const Item = ({ item }) => (
         <div className={'link'}>Leer artículo →</div>
       </Link>
       <div className={'categories'}>
-        {item.frontmatter.categories.join(', ')}
+        {item.frontmatter.categories.map((x, idx) => (
+          <Link key={idx} to={`/category/${x}`}>
+            {x}
+            {idx < item.frontmatter.categories.length - 1 && ', '}
+          </Link>
+        ))}
       </div>
     </div>
     <div className={'meta'}>
@@ -90,7 +93,7 @@ const Item = ({ item }) => (
       <span>{item.frontmatter.date}</span>
     </div>
     <div className={'content'}>
-      <p>{excerpt(item.rawMarkdownBody)}</p>
+      <p>{item.excerpt}</p>
     </div>
   </StyledItem>
 );

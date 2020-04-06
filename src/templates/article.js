@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Layout from '../components/Layout';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 import GatsbyImage from 'gatsby-image';
 
@@ -13,7 +13,7 @@ const StyleArticle = styled.article`
   }
 `;
 
-const Article = ({
+const ArticlePage = ({
   data: {
     file: { childMarkdownRemark: data },
   },
@@ -24,9 +24,12 @@ const Article = ({
       <h2>{data.frontmatter.title}</h2>
       <div className={'meta'}>
         Publicado el {data.frontmatter.date} en{' '}
-        {data.frontmatter.categories.map(
-          (x) => x.charAt(0).toUpperCase() + x.slice(1)
-        )}
+        {data.frontmatter.categories.map((x, idx) => (
+          <Link key={idx} to={`/category/${x}`}>
+            {x}
+            {idx < data.frontmatter.categories.length - 1 && ', '}
+          </Link>
+        ))}
       </div>
 
       {data.frontmatter.publications && (
@@ -37,11 +40,11 @@ const Article = ({
   </Layout>
 );
 
-Article.propTypes = {
+ArticlePage.propTypes = {
   data: PropTypes.object,
 };
 
-export default Article;
+export default ArticlePage;
 
 export const pageQuery = graphql`
   query($slug: String) {

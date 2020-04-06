@@ -6,27 +6,33 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import List from '../components/article/List';
 
-const IndexPage = ({
+const TagPage = ({
   data: {
     allFile: { edges: data },
   },
-}) => (
-  <Layout>
-    <SEO title="Barra" />
-    <List items={data.map((x) => x.node.childMarkdownRemark)} />
-  </Layout>
-);
-
-IndexPage.propTypes = {
-  data: PropTypes.object,
+  pageContext: { tag },
+}) => {
+  return (
+    <Layout>
+      <SEO title={tag} />
+      <h4>Filtrando por la etiqueta: {tag}</h4>
+      <List items={data.map((x) => x.node.childMarkdownRemark)} />
+    </Layout>
+  );
 };
 
-export default IndexPage;
+TagPage.propTypes = {
+  data: PropTypes.object,
+  pageContext: PropTypes.object,
+};
+
+export default TagPage;
 
 export const pageQuery = graphql`
-  {
+  query($tag: [String]) {
     allFile(
       filter: {
+        childMarkdownRemark: { frontmatter: { tags: { in: $tag } } }
         sourceInstanceName: { eq: "articles" }
         extension: { eq: "md" }
       }

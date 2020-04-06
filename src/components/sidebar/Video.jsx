@@ -35,7 +35,7 @@ const Video = () => (
         allow={
           'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
         }
-        allowFullscreen={true}
+        allowFullScreen={true}
       ></iframe>
     </div>
   </StyledVideo>

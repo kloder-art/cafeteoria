@@ -6,27 +6,33 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import List from '../components/article/List';
 
-const IndexPage = ({
+const CategoryPage = ({
   data: {
     allFile: { edges: data },
   },
-}) => (
-  <Layout>
-    <SEO title="Barra" />
-    <List items={data.map((x) => x.node.childMarkdownRemark)} />
-  </Layout>
-);
-
-IndexPage.propTypes = {
-  data: PropTypes.object,
+  pageContext: { category },
+}) => {
+  return (
+    <Layout>
+      <SEO title={category} />
+      <h4>Filtrando por la categoría: {category}</h4>
+      <List items={data.map((x) => x.node.childMarkdownRemark)} />
+    </Layout>
+  );
 };
 
-export default IndexPage;
+CategoryPage.propTypes = {
+  data: PropTypes.object,
+  pageContext: PropTypes.object,
+};
+
+export default CategoryPage;
 
 export const pageQuery = graphql`
-  {
+  query($category: [String]) {
     allFile(
       filter: {
+        childMarkdownRemark: { frontmatter: { categories: { in: $category } } }
         sourceInstanceName: { eq: "articles" }
         extension: { eq: "md" }
       }
