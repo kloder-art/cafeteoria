@@ -14,9 +14,7 @@ const StyleArticle = styled.article``;
 
 const ArticlePage = ({
   data: {
-    file: {
-      childMarkdownRemark: { frontmatter, html },
-    },
+    markdownRemark: { frontmatter, html },
   },
 }) => (
   <Layout>
@@ -36,16 +34,14 @@ const ArticlePage = ({
 
 ArticlePage.propTypes = {
   data: PropTypes.shape({
-    file: PropTypes.shape({
-      childMarkdownRemark: PropTypes.shape({
-        frontmatter: PropTypes.shape({
-          image: PropTypes.object,
-          title: PropTypes.string,
-          publications: PropTypes.array,
-          tags: PropTypes.array,
-        }),
-        html: PropTypes.string,
+    markdownRemark: PropTypes.shape({
+      frontmatter: PropTypes.shape({
+        image: PropTypes.object,
+        title: PropTypes.string,
+        publications: PropTypes.array,
+        tags: PropTypes.array,
       }),
+      html: PropTypes.string,
     }),
   }),
 };
@@ -54,34 +50,31 @@ export default ArticlePage;
 
 export const pageQuery = graphql`
   query($slug: String) {
-    file(
-      childMarkdownRemark: { frontmatter: { slug: { eq: $slug } } }
-      extension: { eq: "md" }
-      sourceInstanceName: { eq: "articles" }
+    markdownRemark(
+      frontmatter: { slug: { eq: $slug } }
+      fileInfo: { sourceInstanceName: { eq: "articles" } }
     ) {
-      childMarkdownRemark {
-        frontmatter {
-          slug
+      frontmatter {
+        slug
+        title
+        date(formatString: "DD MMMM, YYYY", locale: "es-ES")
+        categories
+        publications {
           title
+          type
           date(formatString: "DD MMMM, YYYY", locale: "es-ES")
-          categories
-          publications {
-            title
-            type
-            date(formatString: "DD MMMM, YYYY", locale: "es-ES")
-            url
-          }
-          tags
-          image {
-            childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid_withWebp
-              }
+          url
+        }
+        tags
+        image {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
-        html
       }
+      html
     }
   }
 `;

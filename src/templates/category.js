@@ -8,7 +8,7 @@ import List from '../components/article/List';
 
 const CategoryPage = ({
   data: {
-    allFile: { edges: data },
+    allMarkdownRemark: { edges: data },
   },
   pageContext: { category },
 }) => {
@@ -18,7 +18,7 @@ const CategoryPage = ({
       <h4>
         Filtrando por la categoría: {category} ({data.length})
       </h4>
-      <List items={data.map((x) => x.node.childMarkdownRemark)} />
+      <List items={data.map((x) => x.node)} />
     </Layout>
   );
 };
@@ -32,27 +32,24 @@ export default CategoryPage;
 
 export const query = graphql`
   query($category: String!) {
-    allFile(
+    allMarkdownRemark(
       filter: {
-        childMarkdownRemark: { frontmatter: { categories: { eq: $category } } }
-        sourceInstanceName: { eq: "articles" }
-        extension: { eq: "md" }
+        frontmatter: { categories: { in: [$category] } }
+        fileInfo: { sourceInstanceName: { eq: "articles" } }
       }
     ) {
       edges {
         node {
-          childMarkdownRemark {
-            excerpt
-            frontmatter {
-              slug
-              title
-              date(formatString: "DD MMMM, YYYY", locale: "es-ES")
-              categories
-              image {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
+          excerpt
+          frontmatter {
+            slug
+            title
+            date(formatString: "DD MMMM, YYYY", locale: "es-ES")
+            categories
+            image {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }

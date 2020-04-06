@@ -8,7 +8,7 @@ import List from '../components/article/List';
 
 const TagPage = ({
   data: {
-    allFile: { edges: data },
+    allMarkdownRemark: { edges: data },
   },
   pageContext: { tag },
 }) => {
@@ -19,7 +19,7 @@ const TagPage = ({
       <h4>
         Filtrando por la etiqueta: {tag} ({data.length})
       </h4>
-      <List items={data.map((x) => x.node.childMarkdownRemark)} />
+      <List items={data.map((x) => x.node)} />
     </Layout>
   );
 };
@@ -33,27 +33,24 @@ export default TagPage;
 
 export const pageQuery = graphql`
   query($tag: String!) {
-    allFile(
+    allMarkdownRemark(
       filter: {
-        childMarkdownRemark: { frontmatter: { tags: { eq: $tag } } }
-        sourceInstanceName: { eq: "articles" }
-        extension: { eq: "md" }
+        frontmatter: { tags: { in: [$tag] } }
+        fileInfo: { sourceInstanceName: { eq: "articles" } }
       }
     ) {
       edges {
         node {
-          childMarkdownRemark {
-            excerpt
-            frontmatter {
-              slug
-              title
-              date(formatString: "DD MMMM, YYYY", locale: "es-ES")
-              categories
-              image {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
+          excerpt
+          frontmatter {
+            slug
+            title
+            date(formatString: "DD MMMM, YYYY", locale: "es-ES")
+            categories
+            image {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }

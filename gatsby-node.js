@@ -1,13 +1,21 @@
 const path = require('path');
 
-const createArticlePages = async (createPage, result) => {
+// Added fileInfo to markdownRemark nodes
+exports.createSchemaCustomization = ({ actions }) => {
+  actions.createTypes(`
+    type MarkdownRemark implements Node {
+      fileInfo: File @link(from: "parent")
+    }
+  `);
+};
+
+// Create article pages
+const createArticlePages = (createPage, result) => {
   const articleTemplate = path.resolve('src/templates/article.js');
-  result.data.allFile.edges.forEach(
+  result.data.allMarkdownRemark.edges.forEach(
     ({
       node: {
-        childMarkdownRemark: {
-          frontmatter: { slug },
-        },
+        frontmatter: { slug },
       },
     }) => {
       createPage({
@@ -21,15 +29,14 @@ const createArticlePages = async (createPage, result) => {
   );
 };
 
-const createTagsPages = async (createPage, result) => {
+// Create tags pages
+const createTagsPages = (createPage, result) => {
   const tagTemplate = path.resolve('src/templates/tag.js');
   const createdTags = new Set();
-  result.data.allFile.edges.forEach(
+  result.data.allMarkdownRemark.edges.forEach(
     ({
       node: {
-        childMarkdownRemark: {
-          frontmatter: { tags },
-        },
+        frontmatter: { tags },
       },
     }) => {
       for (const tag of tags) {
@@ -48,15 +55,14 @@ const createTagsPages = async (createPage, result) => {
   );
 };
 
-const createCategoriesPages = async (createPage, result) => {
+// Create category pages
+const createCategoriesPages = (createPage, result) => {
   const categoryTemplate = path.resolve('src/templates/category.js');
   const createdCategories = new Set();
-  result.data.allFile.edges.forEach(
+  result.data.allMarkdownRemark.edges.forEach(
     ({
       node: {
-        childMarkdownRemark: {
-          frontmatter: { categories },
-        },
+        frontmatter: { categories },
       },
     }) => {
       for (const category of categories) {
@@ -75,24 +81,20 @@ const createCategoriesPages = async (createPage, result) => {
   );
 };
 
+// Create pages main process
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
   const result = await graphql(`
     {
-      allFile(
-        filter: {
-          sourceInstanceName: { eq: "articles" }
-          extension: { eq: "md" }
-        }
+      allMarkdownRemark(
+        filter: { fileInfo: { sourceInstanceName: { eq: "articles" } } }
       ) {
         edges {
           node {
-            childMarkdownRemark {
-              frontmatter {
-                slug
-                tags
-                categories
-              }
+            frontmatter {
+              slug
+              tags
+              categories
             }
           }
         }
@@ -104,7 +106,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`);
     return;
   }
-  await createArticlePages(createPage, result);
-  await createTagsPages(createPage, result);
-  await createCategoriesPages(createPage, result);
+  createArticlePages(createPage, result);
+  createTagsPages(createPage, result);
+  createCategoriesPages(createPage, result);
 };

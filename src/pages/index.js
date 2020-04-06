@@ -8,12 +8,12 @@ import List from '../components/article/List';
 
 const IndexPage = ({
   data: {
-    allFile: { edges: data },
+    allMarkdownRemark: { edges: data },
   },
 }) => (
   <Layout>
     <SEO title="Barra" />
-    <List items={data.map((x) => x.node.childMarkdownRemark)} />
+    <List items={data.map((x) => x.node)} />
   </Layout>
 );
 
@@ -25,26 +25,21 @@ export default IndexPage;
 
 export const pageQuery = graphql`
   {
-    allFile(
-      filter: {
-        sourceInstanceName: { eq: "articles" }
-        extension: { eq: "md" }
-      }
+    allMarkdownRemark(
+      filter: { fileInfo: { sourceInstanceName: { eq: "articles" } } }
     ) {
       edges {
         node {
-          childMarkdownRemark {
-            excerpt
-            frontmatter {
-              slug
-              title
-              date(formatString: "DD MMMM, YYYY", locale: "es-ES")
-              categories
-              image {
-                childImageSharp {
-                  fluid {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
+          excerpt
+          frontmatter {
+            slug
+            title
+            date(formatString: "DD MMMM, YYYY", locale: "es-ES")
+            categories
+            image {
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
