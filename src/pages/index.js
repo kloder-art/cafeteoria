@@ -4,7 +4,8 @@ import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
-import List from '../components/article/List';
+import List from '../components/index/List';
+import SmallList from '../components/index/small/List';
 
 const IndexPage = ({
   data: {
@@ -13,7 +14,8 @@ const IndexPage = ({
 }) => (
   <Layout>
     <SEO title="Barra" />
-    <List items={data.map((x) => x.node)} />
+    <List items={data.slice(0, 3).map((x) => x.node)} />
+    <SmallList items={data.slice(3).map((x) => x.node)} />
   </Layout>
 );
 
@@ -26,6 +28,7 @@ export default IndexPage;
 export const pageQuery = graphql`
   {
     allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
       filter: { fileInfo: { sourceInstanceName: { eq: "articles" } } }
     ) {
       edges {

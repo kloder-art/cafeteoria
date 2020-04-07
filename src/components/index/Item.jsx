@@ -29,9 +29,15 @@ const StyledItem = styled.div`
       right: 0;
       color: rgba(255, 255, 255, 0.75);
       font-size: 0.8333333333333333em;
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(0, 0, 0, 0.25);
       padding: 0.1em 0.8em;
       text-transform: capitalize;
+      a {
+        color: lightgrey;
+        &:hover {
+          color: white;
+        }
+      }
     }
     .link {
       display: none;
@@ -77,10 +83,10 @@ const Item = ({ item }) => (
       </Link>
       <div className={'categories'}>
         {item.frontmatter.categories.map((x, idx) => (
-          <Link key={idx} to={`/category/${x}`}>
-            {x}
+          <span key={idx}>
+            <Link to={`/category/${x}`}>{x}</Link>
             {idx < item.frontmatter.categories.length - 1 && ', '}
-          </Link>
+          </span>
         ))}
       </div>
     </div>
