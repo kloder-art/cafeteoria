@@ -33,6 +33,7 @@ export default CategoryPage;
 export const query = graphql`
   query($category: String!) {
     allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
       filter: {
         frontmatter: { categories: { in: [$category] } }
         fileInfo: { sourceInstanceName: { eq: "articles" } }
