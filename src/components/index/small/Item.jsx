@@ -11,11 +11,11 @@ const StyledItem = styled.div`
     line-height: 1.5rem;
   }
   .meta {
-    color: lightgrey;
+    color: var(--text-light-color);
     .categories {
       display: inline;
       a {
-        color: lightgrey;
+        color: var(--text-light-color);
         &:hover {
           color: black;
         }

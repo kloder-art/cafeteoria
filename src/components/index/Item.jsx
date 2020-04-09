@@ -53,7 +53,7 @@ const StyledItem = styled.div`
   }
   .meta {
     grid-area: meta;
-    color: lightgrey;
+    color: var(--text-light-color);
     h4 {
       margin: 0 0 0.5rem;
       line-height: 1.5rem;

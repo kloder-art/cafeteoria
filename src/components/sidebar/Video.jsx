@@ -28,6 +28,7 @@ const Video = () => (
     <h4>Para leer mejor</h4>
     <div className={'video-container'}>
       <iframe
+        title={'Vídeo'}
         width={'560'}
         height={'315'}
         src={`https://www.youtube.com/embed/${videoId}`}

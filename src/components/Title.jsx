@@ -19,12 +19,12 @@ const StyledTitle = styled.div`
     }
     h1 {
       margin: 0;
-      color: #222;
+      color: var(--text-color);
     }
     h2 {
       margin: 0;
       font-size: 1rem;
-      color: #bbb;
+      color: var(--text-light-color);
       text-transform: none;
     }
   }
@@ -33,7 +33,7 @@ const StyledTitle = styled.div`
 const Title = ({ title, description }) => (
   <StyledTitle>
     <Link to={'/'}>
-      <img src={logo} />
+      <img src={logo} alt={'Logo'} />
       <h1>{title}</h1>
       <h2>{description}</h2>
     </Link>
