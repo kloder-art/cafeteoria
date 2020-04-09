@@ -46,11 +46,8 @@ export const pageQuery = graphql`
                 fluid {
                   ...GatsbyImageSharpFluid_withWebp
                 }
-                fixed(height: 400, quality: 85) {
+                thumb: fixed(width: 110, height: 70, quality: 85) {
                   ...GatsbyImageSharpFixed_withWebp
-                }
-                resize(width: 110, height: 70, quality: 85) {
-                  src
                 }
               }
             }

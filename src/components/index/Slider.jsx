@@ -185,8 +185,8 @@ const Slider = ({ items }) => (
       }
       customPaging={(idx) => (
         <a>
-          <img
-            src={items[idx].frontmatter.image.childImageSharp.resize.src}
+          <Img
+            fixed={items[idx].frontmatter.image.childImageSharp.thumb}
             alt={items[idx].frontmatter.title}
           />
         </a>
