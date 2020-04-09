@@ -6,6 +6,7 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import List from '../components/index/List';
 import SmallList from '../components/index/small/List';
+import Slider from '../components/index/Slider';
 
 const IndexPage = ({
   data: {
@@ -14,8 +15,9 @@ const IndexPage = ({
 }) => (
   <Layout>
     <SEO title="Barra" />
-    <List items={data.slice(0, 3).map((x) => x.node)} />
-    <SmallList items={data.slice(3).map((x) => x.node)} />
+    <Slider items={data.slice(0, 5).map((x) => x.node)} />
+    <List items={data.slice(5, 9).map((x) => x.node)} />
+    <SmallList items={data.slice(9).map((x) => x.node)} />
   </Layout>
 );
 
@@ -43,6 +45,12 @@ export const pageQuery = graphql`
               childImageSharp {
                 fluid {
                   ...GatsbyImageSharpFluid_withWebp
+                }
+                fixed(height: 400, quality: 85) {
+                  ...GatsbyImageSharpFixed_withWebp
+                }
+                resize(width: 110, height: 70, quality: 85) {
+                  src
                 }
               }
             }
