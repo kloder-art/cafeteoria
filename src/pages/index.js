@@ -7,6 +7,14 @@ import SEO from '../components/SEO';
 import List from '../components/index/List';
 import SmallList from '../components/index/small/List';
 import Slider from '../components/index/Slider';
+import styled from 'styled-components';
+
+const StyledIndex = styled.div`
+  hr.sep {
+    margin: 2rem 0;
+    border-color: #eee;
+  }
+`;
 
 const IndexPage = ({
   data: {
@@ -15,9 +23,13 @@ const IndexPage = ({
 }) => (
   <Layout>
     <SEO title="Barra" />
-    <Slider items={data.slice(0, 5).map((x) => x.node)} />
-    <List items={data.slice(5, 9).map((x) => x.node)} />
-    <SmallList items={data.slice(9).map((x) => x.node)} />
+    <StyledIndex>
+      <Slider items={data.slice(0, 5).map((x) => x.node)} />
+      <hr className={'sep'} />
+      <List items={data.slice(5, 9).map((x) => x.node)} />
+      <hr className={'sep'} />
+      <SmallList items={data.slice(9).map((x) => x.node)} />
+    </StyledIndex>
   </Layout>
 );
 

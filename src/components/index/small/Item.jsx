@@ -2,15 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
+import GatsbyImage from 'gatsby-image';
 
 const StyledItem = styled.div`
-  min-height: 6rem;
+  min-height: 7rem;
   border-bottom: 1px solid #eee;
+  .gatsby-image-wrapper {
+    float: left;
+    margin-right: 0.7rem;
+  }
   h4 {
-    margin: 0 0 0.5rem;
+    margin: 0 0 0.2rem;
     line-height: 1.5rem;
   }
   .meta {
+    font-size: 0.8rem;
     color: var(--text-light-color);
     .categories {
       display: inline;
@@ -26,6 +32,10 @@ const StyledItem = styled.div`
 
 const Item = ({ item }) => (
   <StyledItem>
+    <GatsbyImage
+      fixed={item.frontmatter.image.childImageSharp.thumb}
+      alt={item.frontmatter.title}
+    />
     <h4>
       <Link to={`/articles/${item.frontmatter.slug}`}>
         {item.frontmatter.title}
