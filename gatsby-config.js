@@ -41,14 +41,14 @@ module.exports = {
         name: 'Cafetoría',
         short_name: 'Cafetoría',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
+        background_color: '#ffffff',
+        theme_color: '#0c80a5',
         display: 'standalone',
         icon: 'src/images/favicon.png', // This path is relative to the root of the site.
       },
     },
-    // 'gatsby-plugin-offline',
-    // 'gatsby-plugin-sitemap',
+    'gatsby-plugin-offline',
+    'gatsby-plugin-sitemap',
     // {
     //   resolve: 'gatsby-plugin-google-analytics',
     //   options: {
