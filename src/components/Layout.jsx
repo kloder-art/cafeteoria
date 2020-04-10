@@ -7,6 +7,7 @@ import Header from './Header';
 import Menu from './Menu';
 import SidebarLeft from './SidebarLeft';
 import SidebarRight from './SidebarRight';
+import Go2Top from './Go2Top';
 
 const StyledLayout = styled.div`
   max-width: 960px;
@@ -46,6 +47,7 @@ const Layout = ({ children }) => {
       <SidebarLeft />
       <main>{children}</main>
       <SidebarRight />
+      <Go2Top />
     </StyledLayout>
   );
 };
