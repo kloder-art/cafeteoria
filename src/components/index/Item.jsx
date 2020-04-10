@@ -78,7 +78,10 @@ const Item = ({ item }) => (
   <StyledItem>
     <div className={'header'}>
       <Link to={`/articles/${item.frontmatter.slug}`}>
-        <Img fluid={item.frontmatter.image.childImageSharp.fluid} />
+        <Img
+          fluid={item.frontmatter.image.childImageSharp.fluid}
+          alt={item.frontmatter.title}
+        />
         <div className={'link'}>Leer artículo →</div>
       </Link>
       <div className={'categories'}>
