@@ -3,24 +3,22 @@ import styled from 'styled-components';
 import { FaChevronUp } from 'react-icons/fa';
 
 const StyledGo2Top = styled.a`
-  line-height: 4rem;
+  line-height: 1rem;
   display: none;
   position: fixed;
-  bottom: 16px;
-  right: 16px;
+  bottom: 1rem;
+  right: 1rem;
   cursor: pointer;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 12px 8px 8px 8px;
-  color: white;
-  width: 60px;
-  height: 60px;
+  background: var(--text-highlight-color);
+  padding: 1rem;
   text-align: center;
   font-size: 16px;
   z-index: 15;
   text-decoration: none;
+  color: lightgrey;
 
   &:visited {
-    color: white;
+    color: lightgrey;
   }
 
   &:hover {
