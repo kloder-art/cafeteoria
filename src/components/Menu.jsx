@@ -6,7 +6,7 @@ const links = [
   { title: 'barra', to: '/' },
   { title: 'café y teoría', to: '/cafe-y-teoria' },
   { title: 'sobre mí', to: '/sobre-mi' },
-  { title: 'coge-una-taza', to: '/coge-una-taza' },
+  { title: 'coge una taza', to: '/coge-una-taza' },
 ];
 
 const StyledMenu = styled.nav`
