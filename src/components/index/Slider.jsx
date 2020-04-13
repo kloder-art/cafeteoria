@@ -7,6 +7,7 @@ import { Link } from 'gatsby';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 const StyledSlider = styled.div`
+  grid-area: slider;
   .gatsby-image-wrapper,
   img {
     margin: 0;
@@ -15,7 +16,6 @@ const StyledSlider = styled.div`
     border-bottom: 0px;
   }
   .slick-slider {
-    margin-bottom: 105px;
     position: relative;
     display: block;
     box-sizing: border-box;
@@ -40,10 +40,6 @@ const StyledSlider = styled.div`
     }
   }
 
-  .slick-track,
-  .slick-list {
-    transform: translate3d(0, 0, 0);
-  }
   .slick-track {
     position: relative;
     top: 0;
@@ -95,9 +91,10 @@ const StyledSlider = styled.div`
   .slick-arrow {
     position: absolute;
     z-index: 1;
-    bottom: 0;
+    top: 270px;
     border: 0px;
     background: rgba(0, 0, 0, 0.5);
+    height: 30px;
     color: var(--background-color);
     cursor: pointer;
     padding: 0.4rem 0.5rem;
@@ -115,23 +112,18 @@ const StyledSlider = styled.div`
     }
   }
   .slick-dots {
-    position: absolute;
     width: 100%;
     text-align: center;
     list-style: none;
-    margin: 0;
+    margin: 1rem 0 0;
     padding: 0;
-    bottom: -75px;
     display: flex !important;
     flex-direction: row;
     justify-content: space-between;
     li {
-      // position: relative;
-      // display: inline-block;
       cursor: pointer;
       width: 110px;
       height: 70px;
-      // margin: 0 0.5rem;
       &.slick-active {
         opacity: 0.5;
       }

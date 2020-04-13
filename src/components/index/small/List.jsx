@@ -7,8 +7,9 @@ import Item from './Item';
 const StyledList = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 1.5rem;
-  margin-top: 3rem;
+  grid-auto-rows: auto;
+  grid-gap: 1rem;
+  margin-top: 2rem;
 `;
 
 const List = ({ items }) => (

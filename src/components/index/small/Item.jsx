@@ -5,8 +5,6 @@ import { Link } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
 
 const StyledItem = styled.div`
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #eee;
   display: grid;
   grid-template-columns: 110px auto;
   grid-auto-rows: auto;

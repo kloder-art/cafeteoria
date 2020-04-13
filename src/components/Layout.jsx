@@ -8,6 +8,7 @@ import Menu from './Menu';
 import SidebarLeft from './SidebarLeft';
 import SidebarRight from './SidebarRight';
 import Go2Top from './Go2Top';
+import Slider from './index/Slider';
 
 const StyledLayout = styled.div`
   max-width: 960px;
@@ -19,6 +20,7 @@ const StyledLayout = styled.div`
   grid-template-areas:
     'header header header header header'
     'menu menu menu menu menu'
+    ${(props) => props.home && '"sidebarLeft slider slider slider slider"'}
     'sidebarLeft main main main sidebarRight';
   grid-auto-flow: row dense;
   main {
@@ -26,7 +28,7 @@ const StyledLayout = styled.div`
   }
 `;
 
-const Layout = ({ children }) => {
+const Layout = ({ children, items, home }) => {
   const {
     site: { siteMetadata: meta },
   } = useStaticQuery(graphql`
@@ -41,10 +43,12 @@ const Layout = ({ children }) => {
   `);
 
   return (
-    <StyledLayout>
+    <StyledLayout home={home}>
       <Header title={meta.title} description={meta.description} />
       <Menu />
       <SidebarLeft />
+      {console.log(home, items)}
+      {home && <Slider items={items} />}
       <main>{children}</main>
       <SidebarRight />
       <Go2Top />
@@ -54,6 +58,12 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  items: PropTypes.array,
+  home: PropTypes.bool,
+};
+
+Layout.defaultProps = {
+  home: false,
 };
 
 export default Layout;

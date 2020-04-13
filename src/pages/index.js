@@ -6,7 +6,6 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import List from '../components/index/List';
 import SmallList from '../components/index/small/List';
-import Slider from '../components/index/Slider';
 import styled from 'styled-components';
 
 const StyledIndex = styled.div`
@@ -21,13 +20,10 @@ const IndexPage = ({
     allMarkdownRemark: { edges: data },
   },
 }) => (
-  <Layout>
+  <Layout items={data.slice(0, 6).map((x) => x.node)} home>
     <SEO title="Barra" />
     <StyledIndex>
-      <Slider items={data.slice(0, 5).map((x) => x.node)} />
-      <hr className={'sep'} />
-      <List items={data.slice(5, 9).map((x) => x.node)} />
-      <hr className={'sep'} />
+      <List items={data.slice(6, 9).map((x) => x.node)} />
       <SmallList items={data.slice(9).map((x) => x.node)} />
     </StyledIndex>
   </Layout>
