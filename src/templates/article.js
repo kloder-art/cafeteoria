@@ -57,12 +57,12 @@ export const pageQuery = graphql`
       frontmatter {
         slug
         title
-        date(formatString: "DD MMMM, YYYY", locale: "es-ES")
+        date(formatString: "D [de] MMMM [de] YYYY", locale: "es-ES")
         categories
         publications {
           title
           type
-          date(formatString: "DD MMMM, YYYY", locale: "es-ES")
+          date(formatString: "D [de] MMMM [de] YYYY", locale: "es-ES")
           url
         }
         tags

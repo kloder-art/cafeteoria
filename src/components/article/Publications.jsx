@@ -9,7 +9,7 @@ const Publications = ({ items }) => (
     {items.map((x, idx) => (
       <li key={idx}>
         <em>
-          Articulo publicado anteriormente en {x.date} en la {x.type}{' '}
+          Articulo publicado anteriormente el {x.date} en la {x.type}{' '}
           <a href={x.url} target={'_blank'} rel={'noopener noreferrer'}>
             {x.title}
           </a>
