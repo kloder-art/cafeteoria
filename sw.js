@@ -27,30 +27,30 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-1ad1538c8543b35ef2c2.js"
+    "url": "webpack-runtime-93d2c2920ca19afe1793.js"
   },
   {
-    "url": "framework-381539f6286ce6c8ee65.js"
+    "url": "framework-52a3ea48de1a5dd03b5a.js"
   },
   {
     "url": "styles.65a93b93f9cffc8e6780.css"
   },
   {
-    "url": "styles-aac6ea7536de35f0f07b.js"
+    "url": "styles-4773e5fdece67d6f48f5.js"
   },
   {
-    "url": "app-a95e32b3d42063c06e82.js"
+    "url": "app-1aee758fc10382617aaf.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "db174caeb3b21919552bef4599f0126b"
+    "revision": "98fefe2462cc855b45ed59598f89b6bd"
   },
   {
     "url": "google-fonts/s/abel/v10/MwQ5bhbm2POE2V9BPQ.woff2",
     "revision": "e47ed945fac3c8e0538440cb3eaba940"
   },
   {
-    "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-45876cc2d4c10fe60a41.js"
+    "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-8dc5b1de7df84c955e11.js"
   },
   {
     "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
@@ -58,7 +58,7 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/app-data.json",
-    "revision": "bcbdb405ec9132184ff8e2087054e699"
+    "revision": "372991e4fc9e993770231c372c75406b"
   },
   {
     "url": "manifest.webmanifest",
@@ -155,7 +155,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/cafeteoria/app-a95e32b3d42063c06e82.js`))) {
+  if (!resources || !(await caches.match(`/cafeteoria/app-1aee758fc10382617aaf.js`))) {
     return await fetch(event.request)
   }
 
