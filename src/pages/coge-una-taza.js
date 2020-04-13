@@ -9,7 +9,7 @@ const SecondPage = () => (
     <h2>Coge una taza</h2>
     <p>
       Si después de tanta chapa te has quedado con ganas de decirme algo,
-      escríbeme a <a href={'mailto:info@ccafeteoria.es'}>info@cafeteoria.es</a>{' '}
+      escríbeme a <a href={'mailto:info@cafeteoria.es'}>info@cafeteoria.es</a>{' '}
       y cuéntame tu vida; se me da bien escuchar. Ya se trate de cualquier
       comentario, como de escribir alguna columna o colgar algún artículo
       académico, estaré esperando tus noticias.
