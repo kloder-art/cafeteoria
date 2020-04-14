@@ -27,7 +27,7 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-93d2c2920ca19afe1793.js"
+    "url": "webpack-runtime-671adc858236f04b6955.js"
   },
   {
     "url": "framework-52a3ea48de1a5dd03b5a.js"
@@ -39,11 +39,11 @@ self.__precacheManifest = [
     "url": "styles-4773e5fdece67d6f48f5.js"
   },
   {
-    "url": "app-1aee758fc10382617aaf.js"
+    "url": "app-c0b8a0c56092ab5e85d0.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "98fefe2462cc855b45ed59598f89b6bd"
+    "revision": "1af5e9049e67bd9e2cd742b3402757d3"
   },
   {
     "url": "google-fonts/s/abel/v10/MwQ5bhbm2POE2V9BPQ.woff2",
@@ -53,16 +53,8 @@ self.__precacheManifest = [
     "url": "component---cache-caches-gatsby-plugin-offline-app-shell-js-8dc5b1de7df84c955e11.js"
   },
   {
-    "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
-    "revision": "43232b01cc861c0701a3ece4bd67720b"
-  },
-  {
-    "url": "page-data/app-data.json",
-    "revision": "372991e4fc9e993770231c372c75406b"
-  },
-  {
     "url": "manifest.webmanifest",
-    "revision": "7c2e09bb3efd364fad69f69a55270f15"
+    "revision": "3cfa137f70557aa6969102071c34d414"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
@@ -150,12 +142,12 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   lastNavigationRequest = event.request.url
 
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^/cafeteoria`), ``)
+  pathname = pathname.replace(new RegExp(`^`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/cafeteoria/app-1aee758fc10382617aaf.js`))) {
+  if (!resources || !(await caches.match(`/app-c0b8a0c56092ab5e85d0.js`))) {
     return await fetch(event.request)
   }
 
@@ -168,7 +160,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/cafeteoria/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/offline-plugin-app-shell-fallback/index.html`
   const offlineShellWithKey = workbox.precaching.getCacheKeyForURL(offlineShell)
   return await caches.match(offlineShellWithKey)
 })
