@@ -1,10 +1,9 @@
 module.exports = {
-  pathPrefix: '/cafeteoria',
   siteMetadata: {
     title: 'Cafeteoría',
     description: 'Ya alguien nos había hablado de todo esto',
     author: '@jlopezcur',
-    siteUrl: 'https://kloder-art.github.io/cafeteoria/',
+    siteUrl: 'https://www.cafeteoria.es',
   },
   plugins: [
     '@rhysforyou/gatsby-plugin-react-helmet-async',
